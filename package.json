@@ -1,0 +1,23 @@
+{
+  "name": "@hydrofoil/hydrofoil-paper-shell",
+  "version": "0.1.0",
+  "description": "Material design hypermedia-driven web application",
+  "repository": "https://github.com/hypermedia-app/hydrofoil-paper-shell",
+  "author": "tpluscode",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "**/*.js",
+    "**/*.d.ts",
+    "**/template.html"
+  ],
+  "devDependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@hydrofoil/hydrofoil-shell": "https://github.com/hypermedia-app/hydrofoil-shell"
+  }
+}
