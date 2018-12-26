@@ -1,5 +1,5 @@
+import {HydrofoilShell} from '@hydrofoil/hydrofoil-shell/hydrofoil-shell'
 import {customElement, html} from '@polymer/lit-element'
-import {HydrofoilShell} from './hydrofoil-shell'
 
 import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
