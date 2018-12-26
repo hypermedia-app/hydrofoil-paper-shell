@@ -7,7 +7,7 @@ import '@polymer/iron-icons/iron-icons'
 import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-item/paper-item'
 import '@polymer/paper-spinner/paper-spinner'
-import './loading-overlay/loading-overlay'
+import './loading-overlay'
 
 @customElement('hydrofoil-paper-shell')
 export class HydrofoilPaperShell extends HydrofoilShell {
