@@ -5,22 +5,8 @@ import {repeat} from 'lit-html/directives/repeat'
 import 'paper-collapse-item/paper-collapse-group'
 
 export default abstract class HydrofoilMultiResourceView<TModel> extends LitElement {
-    static get properties() {
-        return {
-            root: { type: Object, noAccessors: true, attribute: false },
-        }
-    }
-
-    public get root() {
-        return this.displayedResources[0]
-    }
-
-    public set root(newValue: TModel) {
-        const oldValue = this.root
-        this.displayedResources = [ newValue ]
-        this.current = newValue
-        this.requestUpdate('root', oldValue)
-    }
+    @property({ type: Object, attribute: false })
+    public root: TModel
 
     @property({ type: Array, attribute: false })
     public displayedResources: TModel[] = []
@@ -28,12 +14,20 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
     @property({ type: Object, attribute: false })
     public current: TModel
 
+    public updated(props) {
+        super.updated(props)
+        if (props.has('root')) {
+            this.displayedResources = [ this.root ]
+            this.current = this.root
+        }
+    }
+
     public connectedCallback() {
         super.connectedCallback()
         this.addEventListener('hydrofoil-append-resource', (e: CustomEvent) => {
             const indexOfParent = this.displayedResources.findIndex((res) => this.areSame(res, e.detail.parent))
             const remaining = this.displayedResources.slice(0, indexOfParent + 1)
-            this.displayedResources = [ ...remaining, e.detail.resource]
+            this.displayedResources = [ ...remaining, e.detail.resource ]
             this.current = e.detail.resource
         })
 
@@ -53,7 +47,7 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
         ${this.renderHeader(model)} <button @click="${this.close(model)}">Close</button>
     </div>
 
-    ${this.renderModel}
+    ${this.renderModel(model)}
 </paper-collapse-item>`
 
         return html`<paper-collapse-group>${repeat(this.displayedResources, renderPanel)}</paper-collapse-group>`
