@@ -8,7 +8,7 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
         return left && right && left.id === right.id
     }
 
-    protected renderHeader(model: HydraResource) {
-        return html`${model.id}`
+    protected getHeader(model: HydraResource) {
+        return model.id
     }
 }
