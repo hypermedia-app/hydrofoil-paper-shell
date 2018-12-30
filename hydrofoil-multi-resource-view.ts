@@ -38,12 +38,7 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
         })
 
         this.addEventListener('hydrofoil-close-resource', (e: CustomEvent) => {
-            const indexOfRemoved = this.displayedResources.findIndex((res) => this.areSame(res, e.detail.resource))
-
-            this.displayedResources = this.displayedResources.slice(0, indexOfRemoved)
-            if (this.displayedResources.length > 0) {
-                this.current = this.displayedResources[this.displayedResources.length - 1]
-            }
+            this.close(e.detail.resource)
         })
     }
 
@@ -55,7 +50,7 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
         const renderPanel = (model) => html`
 <paper-collapse-item icon="${ifDefined(this.getIcon(model))}" ?opened="${this.areSame(model, this.current)}">
     <div slot="header">
-        ${this.renderHeader(model)}
+        ${this.renderHeader(model)} <button @click="${this.close(model)}">Close</button>
     </div>
 
     ${this.renderModel}
@@ -65,12 +60,22 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
     }
 
     protected renderModel(model: TModel) {
-        return html`<lit-view .value="${model}" ignore-missing></lit-view>`
+        return html`<lit-view .value="${model}" ignore-missing template-scope="hydrofoil-multi-resource"></lit-view>`
     }
 
     protected getIcon(model: TModel) {
+        return undefined
     }
 
     protected abstract areSame(left: TModel, right: TModel)
     protected abstract renderHeader(model: TModel)
+
+    private close(removed: TModel) {
+        const indexOfRemoved = this.displayedResources.findIndex((res) => this.areSame(res, removed))
+
+        this.displayedResources = this.displayedResources.slice(0, indexOfRemoved)
+        if (this.displayedResources.length > 0) {
+            this.current = this.displayedResources[this.displayedResources.length - 1]
+        }
+    }
 }
