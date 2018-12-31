@@ -1,18 +1,16 @@
 import {html, LitElement, property} from '@polymer/lit-element'
-import {ifDefined} from 'lit-html/directives/if-defined'
-import {repeat} from 'lit-html/directives/repeat'
 
 import 'paper-collapse-item/paper-collapse-group'
 
-export default abstract class HydrofoilMultiResourceView<TModel> extends LitElement {
+export default abstract class HydrofoilMultiResourceView extends LitElement {
     @property({ type: Object, attribute: false })
-    public root: TModel
+    public root: any
 
     @property({ type: Array, attribute: false })
-    public displayedResources: TModel[] = []
+    public displayedResources: any[] = []
 
     @property({ type: Object, attribute: false })
-    public current: TModel
+    public current: any
 
     public updated(props) {
         super.updated(props)
@@ -41,32 +39,21 @@ export default abstract class HydrofoilMultiResourceView<TModel> extends LitElem
             return this.renderModel(this.displayedResources[0])
         }
 
-        const renderPanel = (model) => html`
-<paper-collapse-item header="${this.getHeader(model)}"
-                     icon="${ifDefined(this.getIcon(model))}"
-                     ?opened="${this.areSame(model, this.current)}">
-    <div slot="header">
-        ${this.areSame(model, this.root) ? '' : html`<paper-button @click="${this.close(model)}">Close</paper-button>`}
-    </div>
-
-    ${this.renderModel(model)}
-</paper-collapse-item>`
-
-        return html`<paper-collapse-group>${repeat(this.displayedResources, renderPanel)}</paper-collapse-group>`
+        return this.renderAll()
     }
 
-    protected renderModel(model: TModel) {
+    protected renderModel(model: any) {
         return html`<lit-view .value="${model}" ignore-missing template-scope="hydrofoil-multi-resource"></lit-view>`
     }
 
-    protected getIcon(model: TModel) {
-        return undefined
+    protected getHeader(model: any) {
+        return model.title || model.id.match(/\/[^/]+\/?$/)
     }
 
-    protected abstract areSame(left: TModel, right: TModel)
-    protected abstract getHeader(model: TModel)
+    protected abstract areSame(left: any, right: any)
+    protected abstract renderAll()
 
-    private close(removed: TModel) {
+    protected close(removed: any) {
         return (e: Event) => {
             const indexOfRemoved = this.displayedResources.findIndex((res) => this.areSame(res, removed))
 
