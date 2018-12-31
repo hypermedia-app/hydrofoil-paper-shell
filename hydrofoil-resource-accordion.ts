@@ -1,8 +1,11 @@
+import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
 import {customElement, html} from '@polymer/lit-element'
 import {HydraResource} from 'alcaeus/types/Resources'
 import {ifDefined} from 'lit-html/directives/if-defined'
 import {repeat} from 'lit-html/directives/repeat'
-import HydrofoilMultiResourceView from './hydrofoil-multi-resource-view'
+
+import '@polymer/paper-icon-button/paper-icon-button'
+import 'paper-collapse-item/paper-collapse-group'
 
 @customElement('hydrofoil-resource-accordion')
 export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceView {
@@ -20,7 +23,9 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
                      icon="${ifDefined(this.getIcon(model))}"
                      ?opened="${this.areSame(model, this.current)}">
     <div slot="header">
-        ${this.areSame(model, this.root) ? '' : html`<paper-button @click="${this.close(model)}">Close</paper-button>`}
+        ${this.areSame(model, this.root)
+            ? ''
+            : html`<paper-icon-button icon="close" @click="${this.close(model)}"></paper-icon-button>`}
     </div>
 
     ${this.renderModel(model)}
@@ -30,7 +35,7 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
 
 <custom-style>
     <style>
-        paper-button {
+        paper-icon-button {
             cursor: pointer
         }
 

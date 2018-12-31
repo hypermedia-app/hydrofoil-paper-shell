@@ -1,8 +1,9 @@
+import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
 import {IronPagesElement} from '@polymer/iron-pages/iron-pages'
 import {customElement, html, query} from '@polymer/lit-element'
 import {repeat} from 'lit-html/directives/repeat'
-import HydrofoilMultiResourceView from './hydrofoil-multi-resource-view'
 
+import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-icon-button/paper-icon-button'
 import '@polymer/paper-tabs/paper-tabs'
 
