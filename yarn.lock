@@ -4,7 +4,7 @@
 
 "@hydrofoil/hydrofoil-shell@https://github.com/hypermedia-app/hydrofoil-shell":
   version "0.1.0"
-  resolved "https://github.com/hypermedia-app/hydrofoil-shell#3ee6e138afe9b022abbd512ebb9a2d381a140a9f"
+  resolved "https://github.com/hypermedia-app/hydrofoil-shell#4566643e2ee06b778e9c5272bef0e97d28182439"
   dependencies:
     "@lit-any/lit-any" "^0.7.0"
     "@polymer/lit-element" "^0.6.5"
