@@ -83,7 +83,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
 
             <iron-pages attr-for-selected="data-state" selected="${this.state}">
                 <div data-state="ready">
-                    Hello
+                    <slot name="shell-ready"></slot>
                 </div>
 
                 <div data-state="loaded">
