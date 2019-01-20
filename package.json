@@ -31,7 +31,6 @@
     "@polymer/paper-input": "^3.0.1",
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.1",
-    "@polymer/paper-spinner": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
     "paper-collapse-item": "^4.0.5"

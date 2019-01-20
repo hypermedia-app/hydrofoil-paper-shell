@@ -98,7 +98,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
             </iron-pages>
 
             <loading-overlay ?opened="${this.isLoading}">
-                <paper-spinner active></paper-spinner>
+                <slot name="loader"></slot>
             </loading-overlay>
         </app-header-layout>
     </app-drawer-layout>`
