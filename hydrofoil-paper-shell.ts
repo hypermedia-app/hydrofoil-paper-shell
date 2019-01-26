@@ -1,6 +1,7 @@
+import AlcaeusLoader from '@hydrofoil/alcaeus-loader'
 import {HydrofoilShell} from '@hydrofoil/hydrofoil-shell/hydrofoil-shell'
 import {AppDrawerElement} from '@polymer/app-layout/app-drawer/app-drawer'
-import {customElement, html, query} from '@polymer/lit-element'
+import {customElement, html, query} from 'lit-element'
 
 import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
@@ -11,14 +12,14 @@ import '@polymer/paper-spinner/paper-spinner'
 import './loading-overlay'
 
 @customElement('hydrofoil-paper-shell')
-export class HydrofoilPaperShell extends HydrofoilShell {
+export class HydrofoilPaperShell extends AlcaeusLoader(HydrofoilShell) {
     @query('#rightDrawer')
     private rightDrawer: AppDrawerElement
 
     @query('#leftDrawer')
     private leftDrawer: AppDrawerElement
 
-    protected get _style() {
+    public get _style() {
         return html`
             ${super._style}
             <style>
@@ -60,7 +61,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
         this.leftDrawer.open()
     }
 
-    protected renderMain() {
+    public renderMain() {
         import('./hydrofoil-entrypoint-menu')
 
         return html`<app-drawer-layout>

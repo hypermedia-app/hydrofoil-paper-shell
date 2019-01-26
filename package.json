@@ -19,6 +19,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "@hydrofoil/alcaeus-loader": "https://github.com/hypermedia-app/alcaeus-loader",
     "@hydrofoil/hydrofoil-shell": "https://github.com/hypermedia-app/hydrofoil-shell",
     "@polymer/app-layout": "^3.0.2",
     "@polymer/decorators": "^3.0.0",

@@ -1,6 +1,6 @@
 import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
 import {IronPagesElement} from '@polymer/iron-pages/iron-pages'
-import {html, query} from '@polymer/lit-element'
+import {html, query} from 'lit-element'
 import {repeat} from 'lit-html/directives/repeat'
 
 import '@polymer/iron-pages/iron-pages'

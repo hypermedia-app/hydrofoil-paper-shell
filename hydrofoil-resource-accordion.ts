@@ -1,6 +1,7 @@
 import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
-import {html} from '@polymer/lit-element'
 import {HydraResource} from 'alcaeus/types/Resources'
+import {html} from 'lit-html'
+import {TemplateResult} from 'lit-html'
 import {ifDefined} from 'lit-html/directives/if-defined'
 import {repeat} from 'lit-html/directives/repeat'
 
@@ -16,6 +17,9 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
         return undefined
     }
 
+    /**
+     * @returns {TemplateResult}
+     */
     protected renderAll() {
         const renderPanel = (model) => html`
 <paper-collapse-item header="${this.getHeader(model)}"
