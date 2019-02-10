@@ -10,10 +10,7 @@ import '@polymer/paper-listbox'
 import '@polymer/polymer/lib/elements/dom-repeat'
 import 'paper-collapse-item/paper-collapse-item'
 
-// @ts-ignore
-import template from './template.html'
-
-@customElement('hydrofoil-entrypoint-menu')
+@customElement('alcaeus-entrypoint-menu')
 export default class extends PolymerElement {
     @property({ type: Object })
     public resource: HydraResource
@@ -54,6 +51,24 @@ export default class extends PolymerElement {
     }
 
     static get template() {
-        return html([`${template}`] as any)
+        return html`
+<style>
+    :host { display: block }
+
+    paper-item, paper-collapse-item {
+        cursor: pointer;
+    }
+</style>
+
+<paper-collapse-item header="Main menu" opened="{{opened}}">
+    <paper-listbox>
+        <paper-item on-tap="loadEntrypoint">[[homeLabel]]</paper-item>
+        <dom-repeat items="[[links]]" as="link">
+            <template>
+                <paper-item on-tap="load">[[link.title]]</paper-item>
+            </template>
+        </dom-repeat>
+    </paper-listbox>
+</paper-collapse-item>`
     }
 }
