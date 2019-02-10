@@ -69,7 +69,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
                 <div class="title">Options</div>
             </app-toolbar>
 
-            <slot name="toolbar-left"></slot>
+            <slot name="drawer-left"></slot>
         </app-drawer>
 
         <app-drawer align="end" slot="drawer" swipe-open id="rightDrawer">
