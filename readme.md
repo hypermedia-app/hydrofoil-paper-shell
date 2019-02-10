@@ -41,3 +41,27 @@ To add multiple toolbar, use code like `<app-toolbar slot="drawer-left">`. Above
 The slot `shell-ready` is only displayed initially, before any resource is loaded from the API.
 
 The slot `loader` is used inside a full-scree overlay, displayed while executing a server request.
+
+## Helper elements
+
+### `<hydrofoil-resource-accordion>`
+
+Implementation of [HydrofoilMultiResourceView](https://github.com/hypermedia-app/hydrofoil-shell#hydrofoil-multi-resource-view)
+which displays only one element in stack of collapsible panels
+
+### `<hydrofoil-resource-tabs>`
+
+Implementation of [HydrofoilMultiResourceView](https://github.com/hypermedia-app/hydrofoil-shell#hydrofoil-multi-resource-view)
+which displays only one element inside `<paper-tabs>` element.
+
+### `<loading-overlay>`
+
+Container for the `loader` slot. Displayed as full-screen overlay when the resource is being loaded.
+
+### `<hydrofoil-address-bar>`
+
+Browser-like textbox, which can be used to manully type the resource identifier. Shown in the `header` slot above.
+
+### `<alcaeus-entrypoint-menu>`
+
+Main menu, which displays `paper-item` element for [Hydra entrypoint links](https://alcaeus.hydra.how/latest/api-documentation/entrypoint.html)
