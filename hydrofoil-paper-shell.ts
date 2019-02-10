@@ -61,8 +61,6 @@ export class HydrofoilPaperShell extends HydrofoilShell {
     }
 
     public renderMain() {
-        import('./hydrofoil-entrypoint-menu')
-
         return html`<app-drawer-layout>
         <app-drawer slot="drawer" swipe-open id="leftDrawer">
             <app-toolbar class="medium-tall">
