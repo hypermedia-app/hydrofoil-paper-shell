@@ -8,11 +8,29 @@ import {repeat} from 'lit-html/directives/repeat'
 import '@polymer/paper-icon-button/paper-icon-button'
 import 'paper-collapse-item/paper-collapse-group'
 
+/**
+ * An implementation of `<hydrofoil-multi-resource-view>` in the form of an accordion which always displays a single
+ * item.
+ *
+ * @customElement
+ */
 export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceView {
+    /**
+     * Compares `left` and `right` by comparing their identifiers
+     *
+     * @param left {HydraResource}
+     * @param right {HydraResource}
+     */
     protected areSame(left: HydraResource, right: HydraResource) {
         return left && right && left.id === right.id
     }
 
+    /**
+     * Implement in a derived element class to return icon name to be used for the `model`'s `<paper-item>`
+     *
+     * @param model {HydraResource}
+     * @type {string}
+     */
     protected getIcon(model: HydraResource) {
         return undefined
     }

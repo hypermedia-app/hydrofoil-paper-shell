@@ -10,6 +10,27 @@ import '@polymer/paper-item/paper-item'
 import '@polymer/paper-spinner/paper-spinner'
 import './loading-overlay'
 
+/**
+ * An extension of `<hydrofoil-shell>` with Material Design UI
+ *
+ * The UI elements include:
+ *
+ * * Center pane wrapped in a `app-header-layout`
+ * * Left `<app-drawer>` with a `app-header-layout`
+ * * Right `<aoo-drawer>`, plain
+ * * A full-screen loading overlay which is displayed when a resource is being loaded
+ *
+ * The static UI parts can be extended through a number of slots, whose names should be self-explanatory:
+ *
+ * * `drawer-left`
+ * * `drawer-right`
+ * * `toolbar-main`
+ * * `header`
+ * * `shell-ready`
+ * * `loader`
+ *
+ * @customElement
+ */
 @customElement('hydrofoil-paper-shell')
 export class HydrofoilPaperShell extends HydrofoilShell {
     @query('#rightDrawer')
@@ -52,10 +73,16 @@ export class HydrofoilPaperShell extends HydrofoilShell {
             </style>`
     }
 
+    /**
+     * Opens the right drawer
+     */
     public openRightDrawer() {
         this.rightDrawer.open()
     }
 
+    /**
+     * Opens the left drawer
+     */
     public openLeftDrawer() {
         this.leftDrawer.open()
     }

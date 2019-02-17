@@ -10,20 +10,48 @@ import '@polymer/paper-listbox'
 import '@polymer/polymer/lib/elements/dom-repeat'
 import 'paper-collapse-item/paper-collapse-item'
 
+/**
+ * Material design menu which renders links from Hydra's entrypoint.
+ *
+ * Implemented with Polymer 3 using a collapsible `<paper-listbox>`.
+ *
+ * The menu renders a static link to the entrypoint itself so that it's always possible to navigate to the API's home.
+ *
+ * @customElement
+ */
 @customElement('alcaeus-entrypoint-menu')
 export default class extends PolymerElement {
+    /**
+     * The API entrypoint resource previously loaded from the API Documentation
+     *
+     * @type {HydraResource}
+     */
     @property({ type: Object })
-    public resource: HydraResource
+    public entrypoint: HydraResource
 
-    @property({ type: Object })
-    public readonly entrypoint: HydraResource
-
+    /**
+     * Controls the state of the collapsible panel which wraps the menu.
+     *
+     * @type {Boolean}
+     */
     @property({ type: Boolean })
     public opened: boolean = false
 
+    /**
+     * The entrypoint link's label
+     *
+     * @type {String}
+     */
     @property({ type: String })
     public homeLabel: string = 'Home'
 
+    /**
+     * The links retrieved from the entrypoint resource.
+     *
+     * Note that only properties typed as `hydra:Link` will be considered.
+     *
+     * @type {Array}
+     */
     @computed('entrypoint')
     get links() {
         return this.entrypoint.apiDocumentation
