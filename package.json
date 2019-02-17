@@ -18,8 +18,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@hydrofoil/alcaeus-loader": "https://github.com/hypermedia-app/alcaeus-loader",
-    "@hydrofoil/hydrofoil-shell": "https://github.com/hypermedia-app/hydrofoil-shell",
+    "@hydrofoil/hydrofoil-shell": "^0.1.0",
     "@polymer/app-layout": "^3.0.2",
     "@polymer/decorators": "^3.0.0",
     "@polymer/iron-a11y-keys": "^3.0.1",
@@ -33,6 +32,7 @@
     "@polymer/paper-listbox": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
+    "alcaeus": "^0.4.6",
     "paper-collapse-item": "^4.0.5"
   }
 }
