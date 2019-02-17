@@ -7,9 +7,15 @@ import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-icon-button/paper-icon-button'
 import '@polymer/paper-tabs/paper-tabs'
 
+/**
+ * An implementation of `<hydrofoil-multi-resource-view>` in the form of Material design tabs
+ * item.
+ *
+ * @customElement
+ */
 export default class HydrofoilResourceTabs extends HydrofoilMultiResourceView {
     @query('iron-pages')
-    public pages: IronPagesElement
+    private pages: IronPagesElement
 
     protected areSame(left, right) {
         return left && right && left.id === right.id

@@ -9,14 +9,36 @@ import '@polymer/iron-icons/iron-icons'
 import '@polymer/paper-icon-button/paper-icon-button'
 import '@polymer/paper-input/paper-input'
 
+/**
+ * A browser-like Material Design URL input.
+ *
+ * Comes with button to load the url typed into the input.
+ *
+ * @customElement
+ */
 @customElement('hydrofoil-address-bar')
 export default class HydrofoilAddressBar extends PolymerElement {
+    /**
+     * The current value
+     *
+     * @type {string}
+     */
     @property({ type: String, notify: true })
     public url: string
 
+    /**
+     * A flag indicating that the value is not a valid URL
+     *
+     * @type {boolean}
+     */
     @property({ type: Boolean })
     public addressInvalid: boolean
 
+    /**
+     * A flag which controls if the load button is enabled
+     *
+     * @type {boolean}
+     */
     @computed('url', 'addressInvalid')
     public get canLoad() {
         return this.url && !this.addressInvalid
