@@ -14,6 +14,7 @@
     "**/*.d.ts"
   ],
   "devDependencies": {
+    "alcaeus": "^0.4.6",
     "tslint": "^5.11.0",
     "typescript": "^3.2.2"
   },
@@ -32,7 +33,6 @@
     "@polymer/paper-listbox": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
-    "alcaeus": "^0.4.6",
     "paper-collapse-item": "^4.0.5"
   }
 }
