@@ -1,6 +1,6 @@
 import {HydrofoilShell} from '@hydrofoil/hydrofoil-shell/hydrofoil-shell'
 import {AppDrawerElement} from '@polymer/app-layout/app-drawer/app-drawer'
-import {customElement, html, query} from 'lit-element'
+import {customElement, html, property, query} from 'lit-element'
 
 import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
@@ -32,6 +32,12 @@ import './loading-overlay'
  */
 @customElement('hydrofoil-paper-shell')
 export class HydrofoilPaperShell extends HydrofoilShell {
+    @property({ type: String })
+    public title = 'Hydrofoil Paper Shell'
+
+    @property({ type: String })
+    public rightDrawerTitle = ''
+
     @query('#rightDrawer')
     private rightDrawer: AppDrawerElement
 
@@ -77,7 +83,11 @@ export class HydrofoilPaperShell extends HydrofoilShell {
         return html`<app-drawer-layout>
         <app-drawer slot="drawer" swipe-open id="leftDrawer">
             <app-toolbar class="medium-tall">
-                <div class="title">Options</div>
+                <div class="title">
+                    <slot name="right-drawer-title">
+                        ${this.rightDrawerTitle}
+                    </slot>
+                </div>
             </app-toolbar>
 
             <slot name="drawer-left"></slot>
@@ -91,7 +101,9 @@ export class HydrofoilPaperShell extends HydrofoilShell {
             <app-header slot="header" fixed>
                 <app-toolbar>
                     <div main-title>
-                        Hydra Console
+                        <slot name="toolbar-title">
+                            ${this.title}
+                        </slot>
                     </div>
 
                     <slot name="toolbar-main"></slot>
