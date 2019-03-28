@@ -7,7 +7,6 @@ import '@polymer/iron-icon/iron-icon'
 import '@polymer/iron-icons/iron-icons'
 import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-item/paper-item'
-import '@polymer/paper-spinner/paper-spinner'
 import './loading-overlay'
 
 /**
@@ -47,23 +46,10 @@ export class HydrofoilPaperShell extends HydrofoilShell {
                     --app-drawer-width: 350px;
                 }
 
-                #api-docs-container {
-                    padding: 10px;
-                }
-
                 app-toolbar, ::slotted(app-toolbar) {
                     background: var(--paper-blue-400);
                     color: white;
                     @apply(--paper-font-common-base);
-                }
-
-                #spinner-container {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                 }
 
                 side-menu {
