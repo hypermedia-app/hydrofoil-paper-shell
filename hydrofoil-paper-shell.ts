@@ -6,6 +6,7 @@ import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
 import '@polymer/iron-icons/iron-icons'
 import '@polymer/iron-pages/iron-pages'
+import '@polymer/paper-icon-button/paper-icon-button'
 import '@polymer/paper-item/paper-item'
 import './loading-overlay'
 
@@ -50,6 +51,14 @@ export class HydrofoilPaperShell extends HydrofoilShell {
             <style>
                 :host {
                     --app-drawer-width: 350px;
+                }
+
+                app-drawer-layout[narrow] {
+                    --open-menu-icon-display: block;
+                }
+
+                paper-icon-button[icon="menu"] {
+                    display: var(--open-menu-icon-display, none)
                 }
 
                 app-toolbar, ::slotted(app-toolbar) {
@@ -100,6 +109,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
         <app-header-layout>
             <app-header slot="header" fixed>
                 <app-toolbar>
+                    <paper-icon-button icon="menu" @click="${this.openLeftDrawer}"></paper-icon-button>
                     <div main-title>
                         <slot name="toolbar-title">
                             ${this.title}
