@@ -17,7 +17,7 @@ import './loading-overlay'
  *
  * * Center pane wrapped in a `app-header-layout`
  * * Left `<app-drawer>` with a `app-header-layout`
- * * Right `<aoo-drawer>`, plain
+ * * Right `<app-drawer>`, plain
  * * A full-screen loading overlay which is displayed when a resource is being loaded
  *
  * The static UI parts can be extended through a number of slots, whose names should be self-explanatory:
