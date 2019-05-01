@@ -37,7 +37,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
     public title = 'Hydrofoil Paper Shell'
 
     @property({ type: String })
-    public rightDrawerTitle = ''
+    public leftDrawerTitle = ''
 
     @query('#rightDrawer')
     private rightDrawer: AppDrawerElement
@@ -93,8 +93,8 @@ export class HydrofoilPaperShell extends HydrofoilShell {
         <app-drawer slot="drawer" swipe-open id="leftDrawer">
             <app-toolbar class="medium-tall">
                 <div class="title">
-                    <slot name="right-drawer-title">
-                        ${this.rightDrawerTitle}
+                    <slot name="left-drawer-title">
+                        ${this.leftDrawerTitle}
                     </slot>
                 </div>
             </app-toolbar>
