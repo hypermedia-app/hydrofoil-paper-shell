@@ -36,7 +36,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
     @property({ type: String })
     public title = 'Hydrofoil Paper Shell'
 
-    @property({ type: String })
+    @property({ type: String, attribute: 'left-drawer-title' })
     public leftDrawerTitle = ''
 
     @query('#rightDrawer')
