@@ -100,4 +100,5 @@ fabric.properties
 .idea/httpRequests
 
 *.d.ts
-*.js
+/*-*.js
+*.js.map
