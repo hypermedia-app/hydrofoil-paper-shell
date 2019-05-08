@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
+    "pretest": "eslint --ext *.ts,*.js .",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start --update-snapshots",
@@ -22,12 +23,15 @@
   ],
   "devDependencies": {
     "alcaeus": "^0.4.6",
-    "tslint": "^5.11.0",
+    "eslint": "^5.16.0",
     "typescript": "^3.2.2",
     "@open-wc/testing-karma": "^2.0.1",
     "webpack-merge": "^4.1.5",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
     "@open-wc/testing-karma-bs": "^1.0.6",
-    "@open-wc/testing": "^0.12.1"
+    "@open-wc/testing": "^0.12.1",
+    "standard": "^12.0.1"
   },
   "dependencies": {
     "@hydrofoil/hydrofoil-shell": "^0.1.0",

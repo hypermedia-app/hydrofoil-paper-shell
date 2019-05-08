@@ -1,6 +1,6 @@
-import {computed, customElement, property, query} from '@polymer/decorators'
-import {IronA11yKeysElement} from '@polymer/iron-a11y-keys/iron-a11y-keys'
-import {html, PolymerElement} from '@polymer/polymer'
+import { computed, customElement, property } from '@polymer/decorators'
+import { IronA11yKeysElement } from '@polymer/iron-a11y-keys/iron-a11y-keys'
+import { html, PolymerElement } from '@polymer/polymer'
 
 import '@polymer/iron-a11y-keys/iron-a11y-keys'
 import '@polymer/iron-icon/iron-icon'
@@ -40,27 +40,27 @@ export default class HydrofoilAddressBar extends PolymerElement {
      * @type {boolean}
      */
     @computed('url', 'addressInvalid')
-    public get canLoad() {
+    public get canLoad () {
         return this.url && !this.addressInvalid
     }
 
-    public connectedCallback() {
+    public connectedCallback () {
         super.connectedCallback()
         const k = (this.$.ironKeys as IronA11yKeysElement)
         k.target = this.$.resource
     }
 
-    private loadOnEnter(e: KeyboardEvent) {
+    private loadOnEnter (e: KeyboardEvent) {
         if (e.keyCode === 13) {
             this.load()
         }
     }
 
-    private load() {
+    private load () {
         this.dispatchEvent(new CustomEvent('resource-confirmed'))
     }
 
-    static get template() {
+    public static get template () {
         return html`
 <style>
     :host {

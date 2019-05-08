@@ -1,7 +1,7 @@
 import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
-import {IronPagesElement} from '@polymer/iron-pages/iron-pages'
-import {html, query} from 'lit-element'
-import {repeat} from 'lit-html/directives/repeat'
+import { IronPagesElement } from '@polymer/iron-pages/iron-pages'
+import { html, query } from 'lit-element'
+import { repeat } from 'lit-html/directives/repeat'
 
 import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-icon-button/paper-icon-button'
@@ -17,11 +17,11 @@ export default class HydrofoilResourceTabs extends HydrofoilMultiResourceView {
     @query('iron-pages')
     private pages: IronPagesElement
 
-    protected areSame(left, right) {
+    protected areSame (left, right) {
         return left && right && left.id === right.id
     }
 
-    protected renderAll() {
+    protected renderAll () {
         const renderTab = (res) =>
             html`<paper-tab>${this.getHeader(res)}
                  ${this.areSame(res, this.root)
@@ -39,7 +39,7 @@ export default class HydrofoilResourceTabs extends HydrofoilMultiResourceView {
 </iron-pages>`
     }
 
-    private selectPage(e: CustomEvent) {
+    private selectPage (e: CustomEvent) {
         this.pages.select(e.detail.value)
     }
 }

@@ -1,4 +1,3 @@
-import { computed, customElement, listen, property } from '@polymer/decorators'
 import { IronOverlayBehavior } from '@polymer/iron-overlay-behavior/iron-overlay-behavior.js'
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
 import { html, PolymerElement } from '@polymer/polymer/polymer-element'
@@ -8,10 +7,8 @@ import { html, PolymerElement } from '@polymer/polymer/polymer-element'
  *
  * @customElement
  */
-// @ts-ignore
-@customElement('loading-overlay')
 export default class LoadingOverlay extends mixinBehaviors(IronOverlayBehavior, PolymerElement) {
-    constructor() {
+    protected constructor () {
         super()
         this.withBackdrop = true
         this.noCancelOnOutsideClick = true
@@ -20,7 +17,9 @@ export default class LoadingOverlay extends mixinBehaviors(IronOverlayBehavior, 
         this.autoFitOnAttach = true
     }
 
-    static get template() {
+    public static get template () {
         return html`<slot></slot>`
     }
 }
+
+customElements.define('loading-overlay', LoadingOverlay)

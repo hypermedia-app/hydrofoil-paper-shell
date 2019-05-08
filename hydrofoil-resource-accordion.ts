@@ -1,9 +1,8 @@
 import HydrofoilMultiResourceView from '@hydrofoil/hydrofoil-shell/hydrofoil-multi-resource-view'
-import {HydraResource} from 'alcaeus/types/Resources'
-import {html} from 'lit-html'
-import {TemplateResult} from 'lit-html'
-import {ifDefined} from 'lit-html/directives/if-defined'
-import {repeat} from 'lit-html/directives/repeat'
+import { HydraResource } from 'alcaeus/types/Resources'
+import { html } from 'lit-html'
+import { ifDefined } from 'lit-html/directives/if-defined'
+import { repeat } from 'lit-html/directives/repeat'
 
 import '@polymer/paper-icon-button/paper-icon-button'
 import 'paper-collapse-item/paper-collapse-group'
@@ -21,7 +20,7 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
      * @param left {HydraResource}
      * @param right {HydraResource}
      */
-    protected areSame(left: HydraResource, right: HydraResource) {
+    protected areSame (left: HydraResource, right: HydraResource) {
         return left && right && left.id === right.id
     }
 
@@ -31,14 +30,14 @@ export default class HydrofoilResourceAccordion extends HydrofoilMultiResourceVi
      * @param model {HydraResource}
      * @type {string}
      */
-    protected getIcon(model: HydraResource) {
+    protected getIcon (model: HydraResource) {
         return undefined
     }
 
     /**
      * @returns {TemplateResult}
      */
-    protected renderAll() {
+    protected renderAll () {
         const renderPanel = (model) => html`
 <paper-collapse-item header="${this.getHeader(model)}"
                      icon="${ifDefined(this.getIcon(model))}"

@@ -1,8 +1,8 @@
-import {computed, customElement, observe, property} from '@polymer/decorators'
-import {html, PolymerElement} from '@polymer/polymer'
-import {animationFrame} from '@polymer/polymer/lib/utils/async'
-import {Debouncer} from '@polymer/polymer/lib/utils/debounce'
-import {HydraResource} from 'alcaeus/types/Resources'
+import { computed, customElement, observe, property } from '@polymer/decorators'
+import { html, PolymerElement } from '@polymer/polymer'
+import { animationFrame } from '@polymer/polymer/lib/utils/async'
+import { Debouncer } from '@polymer/polymer/lib/utils/debounce'
+import { HydraResource } from 'alcaeus/types/Resources'
 import fireNavigation from 'ld-navigation/fireNavigation'
 
 import '@polymer/paper-item'
@@ -53,7 +53,7 @@ export default class extends PolymerElement {
      * @type {Array}
      */
     @computed('entrypoint')
-    get links() {
+    get links () {
         return this.entrypoint.apiDocumentation
             .getProperties(this.entrypoint.types[0])
             .filter((sp) => {
@@ -62,7 +62,7 @@ export default class extends PolymerElement {
     }
 
     @observe('links')
-    private openWhenLoaded(newLinks, oldLinks) {
+    private openWhenLoaded (newLinks, oldLinks) {
         Debouncer.debounce(null, animationFrame, () => {
             if (!oldLinks) {
                 this.opened = true
@@ -70,15 +70,15 @@ export default class extends PolymerElement {
         })
     }
 
-    private loadEntrypoint() {
+    private loadEntrypoint () {
         fireNavigation(this, this.entrypoint.id)
     }
 
-    private load(e: any) {
+    private load (e: any) {
         fireNavigation(this, this.entrypoint[e.model.link.property.id].id)
     }
 
-    static get template() {
+    public static get template () {
         return html`
 <style>
     :host { display: block }
