@@ -1,6 +1,6 @@
 import { HydrofoilShell } from '@hydrofoil/hydrofoil-shell/hydrofoil-shell'
 import { AppDrawerElement } from '@polymer/app-layout/app-drawer/app-drawer'
-import { customElement, html, property, query } from 'lit-element'
+import { css, customElement, html, property, query } from 'lit-element'
 
 import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
@@ -44,10 +44,8 @@ export class HydrofoilPaperShell extends HydrofoilShell {
     @query('#leftDrawer')
     private leftDrawer: AppDrawerElement
 
-    public get _style () {
-        return html`
-            ${super._style}
-            <style>
+    public static get styles () {
+        return css`${super.styles}
                 :host {
                     --app-drawer-width: 350px;
                 }
@@ -69,8 +67,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
                 side-menu {
                     height: calc(100% - 128px);
                     overflow: auto;
-                }
-            </style>`
+                }`
     }
 
     /**
