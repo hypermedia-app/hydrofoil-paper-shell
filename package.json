@@ -34,7 +34,7 @@
     "standard": "^12.0.1"
   },
   "dependencies": {
-    "@hydrofoil/hydrofoil-shell": "^0.1.0",
+    "@hydrofoil/hydrofoil-shell": "^0.2.0",
     "@polymer/app-layout": "^3.0.2",
     "@polymer/decorators": "^3.0.0",
     "@polymer/iron-a11y-keys": "^3.0.1",
