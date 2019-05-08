@@ -5,7 +5,6 @@ import { customElement, html, property, query } from 'lit-element'
 import '@polymer/app-layout/app-layout'
 import '@polymer/iron-icon/iron-icon'
 import '@polymer/iron-icons/iron-icons'
-import '@polymer/iron-pages/iron-pages'
 import '@polymer/paper-icon-button/paper-icon-button'
 import '@polymer/paper-item/paper-item'
 import './loading-overlay'
@@ -88,7 +87,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
         this.leftDrawer.open()
     }
 
-    public renderMain () {
+    public render () {
         return html`<app-drawer-layout>
         <app-drawer slot="drawer" swipe-open id="leftDrawer">
             <app-toolbar class="medium-tall">
@@ -122,21 +121,7 @@ export class HydrofoilPaperShell extends HydrofoilShell {
                 <slot name="header"></slot>
             </app-header>
 
-            <iron-pages attr-for-selected="data-state" selected="${this.state}">
-                <div data-state="ready">
-                    <slot name="shell-ready"></slot>
-                </div>
-
-                <div data-state="loaded">
-                    ${super.renderMain()}
-                </div>
-
-                <div data-state="error">
-                    An error occurred:
-                    <p>${this.lastError ? this.lastError.message : ''}</p>
-                    <p>${this.lastError ? this.lastError.stack : ''}</p>
-                </div>
-            </iron-pages>
+            ${super.render()}
 
             <loading-overlay ?opened="${this.isLoading}">
                 <slot name="loader"></slot>
