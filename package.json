@@ -22,7 +22,6 @@
     "**/*.d.ts"
   ],
   "devDependencies": {
-    "alcaeus": "^0.4.6",
     "eslint": "^5.16.0",
     "typescript": "^3.2.2",
     "@open-wc/testing-karma": "^2.0.1",
@@ -32,6 +31,9 @@
     "@open-wc/testing-karma-bs": "^1.0.6",
     "@open-wc/testing": "^0.12.1",
     "standard": "^12.0.1"
+  },
+  "peerDependencies": {
+    "alcaeus": ">= 0.6"
   },
   "dependencies": {
     "@hydrofoil/hydrofoil-shell": "^0.2.0",
@@ -48,6 +50,7 @@
     "@polymer/paper-listbox": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
+    "alcaeus": "^0.6.0-beta.1",
     "paper-collapse-item": "^4.0.5"
   }
 }

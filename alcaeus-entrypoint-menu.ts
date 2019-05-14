@@ -54,11 +54,7 @@ export default class extends PolymerElement {
      */
     @computed('entrypoint')
     get links () {
-        return this.entrypoint.apiDocumentation
-            .getProperties(this.entrypoint.types[0])
-            .filter((sp) => {
-                return sp.property.types.contains('http://www.w3.org/ns/hydra/core#Link')
-            })
+        return this.entrypoint.getLinks(false)
     }
 
     @observe('links')
