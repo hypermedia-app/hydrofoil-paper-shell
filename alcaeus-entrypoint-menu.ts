@@ -71,7 +71,7 @@ export default class extends PolymerElement {
     }
 
     private load (e: any) {
-        fireNavigation(this, this.entrypoint[e.model.link.property.id].id)
+        fireNavigation(this, this.entrypoint[e.model.link.supportedProperty.property.id].id)
     }
 
     public static get template () {
@@ -89,7 +89,7 @@ export default class extends PolymerElement {
         <paper-item on-tap="loadEntrypoint">[[homeLabel]]</paper-item>
         <dom-repeat items="[[links]]" as="link">
             <template>
-                <paper-item on-tap="load">[[link.title]]</paper-item>
+                <paper-item on-tap="load">[[link.supportedProperty.title]]</paper-item>
             </template>
         </dom-repeat>
     </paper-listbox>
