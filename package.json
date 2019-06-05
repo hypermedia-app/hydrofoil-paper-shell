@@ -1,6 +1,6 @@
 {
   "name": "@hydrofoil/hydrofoil-paper-shell",
-  "version": "0.2.0-beta.2",
+  "version": "0.2.0-beta.3",
   "description": "Material design hypermedia-driven web application",
   "repository": "https://github.com/hypermedia-app/hydrofoil-paper-shell",
   "author": "tpluscode",
@@ -22,25 +22,25 @@
     "**/*.d.ts"
   ],
   "devDependencies": {
+    "@hydrofoil/hydrofoil-shell": "^0.2.0",
     "@open-wc/testing": "^0.12.1",
     "@open-wc/testing-karma": "^2.0.1",
     "@open-wc/testing-karma-bs": "^1.0.6",
+    "@types/sinon": "^7.0.11",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
-    "@types/sinon": "^7.0.11",
+    "alcaeus": "^0.6.0-beta.1",
     "eslint": "^5.16.0",
+    "lit-html": "^1.1.0",
+    "remap-istanbul": "^0.13.0",
     "sinon": "^7.3.2",
     "standard": "^12.0.1",
     "typescript": "^3.2.2",
-    "webpack-merge": "^4.1.5",
-    "lit-html": "^1.1.0",
-    "alcaeus": "^0.6.0-beta.1",
-    "@hydrofoil/hydrofoil-shell": "^0.2.0",
-    "remap-istanbul": "^0.13.0"
+    "webpack-merge": "^4.1.5"
   },
   "peerDependencies": {
-    "alcaeus": ">= 0.6",
-    "@hydrofoil/hydrofoil-shell": ">= 0.2"
+    "@hydrofoil/hydrofoil-shell": ">= 0.2",
+    "alcaeus": ">= 0.6"
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.2",
