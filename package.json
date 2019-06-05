@@ -6,8 +6,7 @@
   "author": "tpluscode",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
+    "prepare": "tsc",
     "pretest": "eslint --ext *.ts,*.js .",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
@@ -15,7 +14,8 @@
     "test:prune-snapshots": "karma start --prune-snapshots",
     "test:legacy": "karma start --legacy --coverage",
     "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
-    "test:bs": "karma start karma.bs.config.js --legacy --coverage"
+    "test:bs": "karma start karma.bs.config.js --legacy --coverage",
+    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly -e ts"
   },
   "files": [
     "**/*.js",
@@ -35,7 +35,8 @@
     "webpack-merge": "^4.1.5",
     "lit-html": "^1.1.0",
     "alcaeus": "^0.6.0-beta.1",
-    "@hydrofoil/hydrofoil-shell": "^0.2.0"
+    "@hydrofoil/hydrofoil-shell": "^0.2.0",
+    "remap-istanbul": "^0.13.0"
   },
   "peerDependencies": {
     "alcaeus": ">= 0.6",
