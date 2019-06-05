@@ -1,6 +1,6 @@
 {
   "name": "@hydrofoil/hydrofoil-paper-shell",
-  "version": "0.2.0-beta.3",
+  "version": "0.2.0",
   "description": "Material design hypermedia-driven web application",
   "repository": "https://github.com/hypermedia-app/hydrofoil-paper-shell",
   "author": "tpluscode",
