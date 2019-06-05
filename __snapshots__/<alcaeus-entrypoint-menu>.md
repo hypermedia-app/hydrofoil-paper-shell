@@ -3,7 +3,10 @@
 #### `renders home link where there is nothing else`
 
 ```html
-<paper-collapse-item header="Main menu">
+<paper-collapse-item
+  header="Main menu"
+  opened=""
+>
   <paper-listbox
     role="listbox"
     tabindex="0"
@@ -31,7 +34,10 @@
 #### `lists links as menu items`
 
 ```html
-<paper-collapse-item header="Main menu">
+<paper-collapse-item
+  header="Main menu"
+  opened=""
+>
   <paper-listbox
     role="listbox"
     tabindex="0"
@@ -61,5 +67,6 @@
     </dom-repeat>
   </paper-listbox>
 </paper-collapse-item>
+
 ```
 

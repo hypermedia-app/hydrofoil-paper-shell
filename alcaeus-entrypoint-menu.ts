@@ -68,7 +68,7 @@ export default class extends PolymerElement {
         return items
     }
 
-    @observe('links')
+    @observe('menuItems')
     private openWhenLoaded (newLinks, oldLinks) {
         Debouncer.debounce(null, animationFrame, () => {
             if (!oldLinks) {

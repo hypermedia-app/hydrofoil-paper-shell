@@ -30,4 +30,20 @@ describe('<alcaeus-entrypoint-menu>', () => {
     // then
     expect(element.menuItems.length).to.equal(1)
   })
+
+  it('opens the menu when links are loaded', async () => {
+    // given
+    const entrypoint = {
+      getLinks: sinon.stub().returns([{
+        supportedProperty: {
+          title: 'Property 1',
+        },
+        resources: [{ id: 'http://property.one/' }],
+      }]),
+    }
+    const element = await fixture(html`<alcaeus-entrypoint-menu .entrypoint="${entrypoint}"></alcaeus-entrypoint-menu>`)
+
+    // then
+    expect(element.opened).to.be.true
+  })
 })
