@@ -53,8 +53,19 @@ export default class extends PolymerElement {
      * @type {Array}
      */
     @computed('entrypoint')
-    get links () {
-        return this.entrypoint.getLinks(false)
+    get menuItems () {
+        const items = []
+
+        for (let tuple of this.entrypoint.getLinks(false)) {
+            for (let resource of tuple.resources) {
+                items.push({
+                    label: tuple.supportedProperty.title,
+                    url: resource.id,
+                })
+            }
+        }
+
+        return items
     }
 
     @observe('links')
@@ -71,7 +82,7 @@ export default class extends PolymerElement {
     }
 
     private load (e: any) {
-        fireNavigation(this, this.entrypoint[e.model.link.supportedProperty.property.id].id)
+        fireNavigation(this, e.model.item.url)
     }
 
     public static get template () {
@@ -87,9 +98,9 @@ export default class extends PolymerElement {
 <paper-collapse-item header="Main menu" opened="{{opened}}">
     <paper-listbox>
         <paper-item on-tap="loadEntrypoint">[[homeLabel]]</paper-item>
-        <dom-repeat items="[[links]]" as="link">
+        <dom-repeat items="[[menuItems]]" as="item">
             <template>
-                <paper-item on-tap="load">[[link.supportedProperty.title]]</paper-item>
+                <paper-item on-click="load">[[item.label]]</paper-item>
             </template>
         </dom-repeat>
     </paper-listbox>

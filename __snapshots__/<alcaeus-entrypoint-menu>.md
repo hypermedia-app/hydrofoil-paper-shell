@@ -1,0 +1,65 @@
+# `<alcaeus-entrypoint-menu>`
+
+#### `renders home link where there is nothing else`
+
+```html
+<paper-collapse-item header="Main menu">
+  <paper-listbox
+    role="listbox"
+    tabindex="0"
+  >
+    <paper-item
+      aria-disabled="false"
+      aria-selected="false"
+      role="option"
+      tabindex="-1"
+    >
+      Home
+    </paper-item>
+    <dom-repeat
+      as="item"
+      style="display: none;"
+    >
+      <template>
+      </template>
+    </dom-repeat>
+  </paper-listbox>
+</paper-collapse-item>
+
+```
+
+#### `lists links as menu items`
+
+```html
+<paper-collapse-item header="Main menu">
+  <paper-listbox
+    role="listbox"
+    tabindex="0"
+  >
+    <paper-item
+      aria-disabled="false"
+      aria-selected="false"
+      role="option"
+      tabindex="-1"
+    >
+      Home
+    </paper-item>
+    <paper-item
+      aria-disabled="false"
+      aria-selected="false"
+      role="option"
+      tabindex="-1"
+    >
+      Property 1
+    </paper-item>
+    <dom-repeat
+      as="item"
+      style="display: none;"
+    >
+      <template>
+      </template>
+    </dom-repeat>
+  </paper-listbox>
+</paper-collapse-item>
+```
+
