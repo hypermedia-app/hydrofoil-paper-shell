@@ -14,8 +14,8 @@
     "test:prune-snapshots": "karma start --prune-snapshots",
     "test:legacy": "karma start --legacy --coverage",
     "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
-    "test:bs": "karma start karma.bs.config.js --legacy --coverage",
-    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly -e ts"
+    "test:bs": "karma start karma.bs.config.js --legacy --grep 'test/**/*.test.js'",
+    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly"
   },
   "files": [
     "**/*.js",

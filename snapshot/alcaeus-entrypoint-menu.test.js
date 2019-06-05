@@ -4,7 +4,7 @@ import * as sinon from 'sinon'
 import '../alcaeus-entrypoint-menu'
 
 describe('<alcaeus-entrypoint-menu>', () => {
-  it('does not include home link in menuItems', async () => {
+  it('renders home link where there is nothing else', async () => {
     // given
     const entrypoint = {
       getLinks: sinon.stub().returns([]),
@@ -12,10 +12,10 @@ describe('<alcaeus-entrypoint-menu>', () => {
     const element = await fixture(html`<alcaeus-entrypoint-menu .entrypoint="${entrypoint}"></alcaeus-entrypoint-menu>`)
 
     // then
-    expect(element.menuItems.length).to.equal(0)
+    expect(element).shadowDom.to.equalSnapshot()
   })
 
-  it('add links to menuItems', async () => {
+  it('lists links as menu items', async () => {
     // given
     const entrypoint = {
       getLinks: sinon.stub().returns([{
@@ -28,6 +28,6 @@ describe('<alcaeus-entrypoint-menu>', () => {
     const element = await fixture(html`<alcaeus-entrypoint-menu .entrypoint="${entrypoint}"></alcaeus-entrypoint-menu>`)
 
     // then
-    expect(element.menuItems.length).to.equal(1)
+    expect(element).shadowDom.to.equalSnapshot()
   })
 })
