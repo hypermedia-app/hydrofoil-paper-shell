@@ -23,7 +23,7 @@
   ],
   "devDependencies": {
     "@hydrofoil/hydrofoil-shell": "^0.2.0",
-    "@open-wc/testing": "^0.12.1",
+    "@open-wc/testing": "^1.0.9",
     "@open-wc/testing-karma": "^2.0.1",
     "@open-wc/testing-karma-bs": "^1.0.6",
     "@types/sinon": "^7.0.11",
