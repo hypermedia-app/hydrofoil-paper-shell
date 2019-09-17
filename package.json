@@ -7,42 +7,57 @@
   "license": "MIT",
   "scripts": {
     "prepare": "tsc",
-    "pretest": "eslint --ext *.ts,*.js .",
     "test": "karma start --coverage",
+    "lint:eslint": "eslint --ext .js,.html,.ts . --quiet --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html,.ts . --quiet --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.{js,ts}\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.{js,ts}\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start --update-snapshots",
     "test:prune-snapshots": "karma start --prune-snapshots",
-    "test:legacy": "karma start --legacy --coverage",
-    "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
-    "test:bs": "karma start karma.bs.config.js --legacy --grep 'test/**/*.test.js'",
-    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly"
+    "test:legacy": "karma start --compatibility all --coverage",
+    "test:legacy:watch": "karma start --compatibility all --auto-watch=true --single-run=false",
+    "test:bs": "karma start karma.bs.config.js --compatibility all --coverage",
+    "release": "standard-version"
   },
   "files": [
     "**/*.js",
     "**/*.d.ts"
   ],
   "devDependencies": {
-    "@hydrofoil/hydrofoil-shell": "^0.2.0",
-    "@open-wc/testing": "^1.0.9",
-    "@open-wc/testing-karma": "^2.0.1",
-    "@open-wc/testing-karma-bs": "^1.0.6",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@open-wc/eslint-config": "^1.1.1",
+    "@open-wc/prettier-config": "^0.1.10",
+    "@open-wc/testing": "^2.3.4",
+    "@open-wc/testing-karma": "^3.1.33",
+    "@open-wc/testing-karma-bs": "^1.1.58",
     "@types/sinon": "^7.0.11",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "alcaeus": "^0.6.0-beta.1",
-    "eslint": "^5.16.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.4.0",
+    "eslint-plugin-lit": "^1.2.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
     "lit-html": "^1.1.0",
-    "remap-istanbul": "^0.13.0",
     "sinon": "^7.3.2",
-    "standard": "^12.0.1",
-    "typescript": "^3.2.2",
-    "webpack-merge": "^4.1.5"
+    "standard": "^14.3.0",
+    "standard-version": "^7.0.0",
+    "typescript": "^3.6.3",
+    "webpack-merge": "^4.2.2"
   },
   "peerDependencies": {
-    "@hydrofoil/hydrofoil-shell": ">= 0.2",
     "alcaeus": ">= 0.6"
   },
   "dependencies": {
+    "@hydrofoil/hydrofoil-shell": "^0.2.3",
     "@polymer/app-layout": "^3.0.2",
     "@polymer/decorators": "^3.0.0",
     "@polymer/iron-a11y-keys": "^3.0.1",
@@ -56,6 +71,30 @@
     "@polymer/paper-listbox": "^3.0.1",
     "@polymer/paper-tabs": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
-    "paper-collapse-item": "^4.0.5"
+    "paper-collapse-item": "^4.0.5",
+    "lit-element": "^2",
+    "ld-navigation": "^1.0.0-2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && tsc --noEmit"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

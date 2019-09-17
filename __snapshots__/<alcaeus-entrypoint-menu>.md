@@ -19,13 +19,6 @@
     >
       Home
     </paper-item>
-    <dom-repeat
-      as="item"
-      style="display: none;"
-    >
-      <template>
-      </template>
-    </dom-repeat>
   </paper-listbox>
 </paper-collapse-item>
 
@@ -58,13 +51,6 @@
     >
       Property 1
     </paper-item>
-    <dom-repeat
-      as="item"
-      style="display: none;"
-    >
-      <template>
-      </template>
-    </dom-repeat>
   </paper-listbox>
 </paper-collapse-item>
 

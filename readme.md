@@ -9,7 +9,7 @@ Polymer's `paper` elements .
 ## Installation
 
 ```
-yarn add @hydrofoil/hydrofoil-paper-shell
+npm i --save @hydrofoil/hydrofoil-paper-shell
 ```
 
 To bundle with webpack, dynamic imports must also be enabled by adding `@babel/plugin-syntax-dynamic-import`.
