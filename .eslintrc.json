@@ -20,7 +20,6 @@
     "import"
   ],
   "rules": {
-    "indent": "off",
     "import/no-unresolved": "warn",
     "import/extensions": "off",
     "space-before-function-paren": [
@@ -34,7 +33,7 @@
       "always-multiline"
     ],
     "@typescript-eslint/no-var-requires": "warn",
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}]
   },
   "overrides": [
