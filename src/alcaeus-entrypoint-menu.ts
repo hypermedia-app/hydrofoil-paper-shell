@@ -1,7 +1,5 @@
-import { computed, customElement, observe, property } from '@polymer/decorators'
-import { html, PolymerElement } from '@polymer/polymer'
-import { animationFrame } from '@polymer/polymer/lib/utils/async'
-import { Debouncer } from '@polymer/polymer/lib/utils/debounce'
+import { customElement, html, LitElement, property, css } from 'lit-element'
+import { repeat } from 'lit-html/directives/repeat'
 import { HydraResource } from 'alcaeus/types/Resources'
 import fireNavigation from 'ld-navigation/fireNavigation'
 
@@ -20,7 +18,7 @@ import 'paper-collapse-item/paper-collapse-item'
  * @customElement
  */
 @customElement('alcaeus-entrypoint-menu')
-export class AlcaeusEntrypointMenu extends PolymerElement {
+export class AlcaeusEntrypointMenu extends LitElement {
   /**
    * The API entrypoint resource previously loaded from the API Documentation
    *
@@ -52,7 +50,6 @@ export class AlcaeusEntrypointMenu extends PolymerElement {
    *
    * @type {Array}
    */
-  @computed('entrypoint')
   get menuItems() {
     if (!this.entrypoint) {
       return []
@@ -70,13 +67,10 @@ export class AlcaeusEntrypointMenu extends PolymerElement {
     )
   }
 
-  @observe('menuItems')
-  private openWhenLoaded(newLinks: [], oldLinks: []) {
-    Debouncer.debounce(null, animationFrame as any, () => {
-      if (!oldLinks) {
-        this.opened = true
-      }
-    })
+  protected updated(_changedProperties: Map<PropertyKey, unknown>): void {
+    if (_changedProperties.has('entrypoint')) {
+      this.opened = true
+    }
   }
 
   private loadEntrypoint() {
@@ -89,26 +83,30 @@ export class AlcaeusEntrypointMenu extends PolymerElement {
     fireNavigation(this, e.model.item.url)
   }
 
-  public static get template() {
+  public static get styles() {
+    return css`
+      :host {
+        display: block;
+      }
+
+      paper-item,
+      paper-collapse-item {
+        cursor: pointer;
+      }
+    `
+  }
+
+  public render() {
     return html`
-      <style>
-        :host {
-          display: block;
-        }
-
-        paper-item,
-        paper-collapse-item {
-          cursor: pointer;
-        }
-      </style>
-
-      <paper-collapse-item header="Main menu" opened="{{opened}}">
+      <paper-collapse-item header="Main menu" ?opened="${this.opened}">
         <paper-listbox>
-          <paper-item on-tap="loadEntrypoint">[[homeLabel]]</paper-item>
-          <dom-repeat items="[[menuItems]]" as="item">
-            <template>
-              <paper-item on-click="load">[[item.label]]</paper-item>
-            </template>
+          <paper-item @click="${this.loadEntrypoint}">${this.homeLabel}</paper-item>
+          ${repeat(
+            this.menuItems,
+            item => html`
+              <paper-item @click="${this.load}">${item.label}</paper-item>
+            `,
+          )}
           </dom-repeat>
         </paper-listbox>
       </paper-collapse-item>
