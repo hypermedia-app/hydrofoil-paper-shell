@@ -8,18 +8,20 @@ import { html, PolymerElement } from '@polymer/polymer/polymer-element'
  * @customElement
  */
 export default class LoadingOverlay extends mixinBehaviors(IronOverlayBehavior, PolymerElement) {
-    protected constructor () {
-        super()
-        this.withBackdrop = true
-        this.noCancelOnOutsideClick = true
-        this.alwaysOnTop = true
-        this.noCancelOnEscKey = true
-        this.autoFitOnAttach = true
-    }
+  protected constructor() {
+    super()
+    this.withBackdrop = true
+    this.noCancelOnOutsideClick = true
+    this.alwaysOnTop = true
+    this.noCancelOnEscKey = true
+    this.autoFitOnAttach = true
+  }
 
-    public static get template () {
-        return html`<slot></slot>`
-    }
+  public static get template() {
+    return html`
+      <slot></slot>
+    `
+  }
 }
 
 customElements.define('loading-overlay', LoadingOverlay)
